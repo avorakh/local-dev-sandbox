@@ -16,3 +16,4 @@ docker compose up -d
 | ------ | ------ |------ |
 | Redis server | 6379 |Connection URL- ```redis://default@redis:6379``` |
 | RedisInsight | 5540 | [UI](http://localhost:5540), [Health Check](http://localhost:5540/api/health/) |
+| MongoDB | 27017 | Connection string ```mongodb://mongo_user:mongo_pass@localhost:27017``` |
