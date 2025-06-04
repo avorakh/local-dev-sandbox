@@ -2,7 +2,7 @@ version: '3.8'
 
 services:
   redis:
-    image: redis:8.0.1
+    image: redis/redis-stack:latest
     container_name: redis
     ports:
       - "6379:6379"
@@ -31,6 +31,9 @@ services:
       MONGO_INITDB_ROOT_PASSWORD: mongo_pass
     volumes:
       - mongo_data:/data/db
+      - ./mongod.conf:/etc/mongo/mongod.conf:ro
+      - ./init-mongo.js:/docker-entrypoint-initdb.d/init-mongo.js:ro
+    command: ["mongod", "--config", "/etc/mongo/mongod.conf"]
     networks:
       - sandboxnet
 
